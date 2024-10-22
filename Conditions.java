@@ -98,4 +98,74 @@ public class Conditions
         //return (Math.abs(num1 - num2) < EPSILON);
     
     }
+    
+    public static void stringExample()
+    {
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter two words: ");
+        String str1 = s.next();
+        String str2 = s.next();
+        
+        /*
+         * The equality operator (==) returns true if the htwo variables (e.g., str1 and str2)
+         *  contain the same value.  For variables of a class type, includeing strings,
+         *  this means is that they must contain the same reference to be equal.  That is, they refer
+         *  to the same object in memeory, not that the two string have the same sequence of characters.
+         */
+        if(str1 == str2)
+        {
+            System.out.println("The string references are equal.");
+        }
+        else
+        {
+            System.out.println("The string references are not equal.");
+        }
+        
+        /*
+         * The equals method returns true if teh two objects referenced by the variables are
+         *  "equal".  What "equal" means is defined by the String class.  For Strings,
+         *  it means they have the same sequence of characters.
+         */
+        if(str1.equals(str2))
+        {
+            System.out.println("The strings are equal (same sequence of characters).");
+        }
+        else
+        {
+            System.out.println("The strings are not equal.");
+        }
+        
+        /*
+         * If we want to check if the strings are not equal, we can use the logical complement operator
+         *  (e.g., !)
+         */
+        if (! str1.equals(str2))
+        {
+            System.out.println("Strings are NOT equal.");
+        }
+        
+        /*
+         * We will determine which string comes first lexographically using the compareTo method of the
+         *  String class.
+         *  
+         *  compareTo returns an int:
+         *      0:   if the strings are equal (the sequence of characters)
+         *      <0:  if str1 < str2 lexigraphically
+         *      >0:  if  str1 > str2 lexigraphically
+         */
+        int result = str1.compareTo(str2);
+        System.out.print("Result of compareTo: " + result);
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
