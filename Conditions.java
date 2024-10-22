@@ -70,13 +70,32 @@ public class Conditions
             System.out.println("rolled a 4");
         }
         
-        
+        /*
+         * { } are not required for a single statement, however they are a good idea.
+         *    Leaving them out, it can lead to bugs like this:
+         */
         if (coinFlip == 0)
             System.out.println("Coin is tails still!");
             System.out.println("better luck next time...");
         
+
+    }
+    
+    public static boolean doublesAreEqual(double num1, double num2)
+    {
+        final double EPSILON = 1e-6;
         
+        if (Math.abs(num1 - num2) < EPSILON)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
         
-        
+        // don't have to use the if /else
+        //return (Math.abs(num1 - num2) < EPSILON);
+    
     }
 }
