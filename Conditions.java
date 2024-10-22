@@ -84,4 +84,107 @@ public class Conditions
             
             
     }
+    
+    public static boolean doublesAreEqual(double num1, double num2)
+    {
+    
+        /*
+         * If we use the equality operator (==) for doubles, it will only return true if the binary digits
+         *  match.
+         *  
+         *  For "equal numbers", this is probably not the case due to floating point rounding.
+         *  
+         *  Instead, we can check if they are "close enough", using an epsilon value.
+         */
+    
+        final double EPSILON = 1e-6;
+        
+        if (Math.abs(num1 - num2) < EPSILON)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        
+        // don't have to use an if/else here
+        //return (Math.abs(num1 - num2) < EPSILON);
+
+    }
+    
+    public static void stringExample()
+    {
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter two words: ");
+        String str1 = s.next();
+        String str2 = s.next();
+        
+        /*
+         * The equality operator (==) returns true if the two variables contain the same value.  For variables
+         *  of a class type, including String, this means that contain the same reference.  That is, they
+         *  refer to the same object in computer memory, NOT that they have the same characters.
+         */
+        if (str1 == str2)
+        {
+            System.out.println("The string references are equal.");
+        }
+        else
+        {
+            System.out.println("The string references are NOT equal.");
+        }
+        
+        /*
+         * The equals method returns true if the the two objects referenced by the variables
+         *  are "equal".  What equal means is defined by the class.  For Strings, it means the two
+         *  objects have the same sequence of characters.
+         */
+        if (str1.equals(str2))
+        {
+            System.out.println("The strings are equal (i.e., same character sequence).");
+        }
+        else
+        {
+            System.out.println("The strings are NOT equal (i.e., different character sequence).");
+        }
+        
+        
+        /*
+         * If we want to check if strings are not equal, we can use the logical complement operator.
+         *      (i.e., !)
+         *      
+         */
+        if (! str1.equals(str2))
+        {
+            System.out.println("The Strings are NOT equal.");
+        }
+        
+        
+        /*
+         * Will determine which string comes first lexicographically using the compareTo method of teh 
+         *  String class
+         *  
+         *  compareTo returns an int:
+         *      0:  the string are equal (same series of characters)
+         *      <0: if str1 < str2 lexicographically
+         *      >0: if str1 > str2 lexicographically
+         */
+        int result = str1.compareTo(str2);
+        System.out.println("Result from str1.compareTo(str2): " + result);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
