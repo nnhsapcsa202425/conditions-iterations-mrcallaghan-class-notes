@@ -171,6 +171,26 @@ public class Conditions
          */
         int result = str1.compareTo(str2);
         System.out.println("Result from str1.compareTo(str2): " + result);
+        
+        String firstStr = null;
+        if (result < 0)
+        {
+            firstStr = str1;
+        }
+        else if (result > 0)
+        {
+            firstStr = str2;
+        }
+
+        if (firstStr != null)
+        {
+            System.out.println("The first string is: " + firstStr);
+        }
+        else
+        {
+            System.out.println("The strings are equal.");
+        }
+        
     }
     
     
