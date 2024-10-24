@@ -154,7 +154,30 @@ public class Conditions
          *      >0:  if  str1 > str2 lexigraphically
          */
         int result = str1.compareTo(str2);
-        System.out.print("Result of compareTo: " + result);
+        System.out.println("Result of compareTo: " + result);
+        
+        String firstStr = null;
+        if (result < 0)
+        {
+            firstStr = str1;
+            
+        }
+        else if (result > 0)
+        {
+            firstStr = str2;
+            
+        }
+        
+        if (firstStr != null)
+        {
+            System.out.println("The first string is " + firstStr);
+        }
+        else
+        {
+            System.out.println("The strings are equal.");
+        }
+        
+        
         
     }
     
