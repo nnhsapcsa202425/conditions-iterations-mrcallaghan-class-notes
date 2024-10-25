@@ -147,13 +147,42 @@ public class Conditions
         }
         
         /*
-         * If we want to check if strigns are not equal, we can use the logical complement operator (i.e., !)
+         * If we want to check if strings are not equal, we can use the logical complement operator (i.e., !)
          */
         if (! str1.equals(str2))
         {
             System.out.println("The strings are NOT equal.");
         }
         
+        
+        /*
+         * compareTo is a String method which will detemine which String comes first lexicographically.
+         * 
+         * compareTo returns an int value:
+         *      0:  if the strings are equal to each other
+         *      <0: if str1 < str2 lexicographically
+         *      >0: if str1 > str2 lexicographically
+         */
+        int result = str1.compareTo(str2);
+        System.out.println("Result of compareTo(): " + result);
+        String firstStr = null;
+        if (result < 0)
+        {
+            firstStr = str1;
+        }
+        else if (result > 0)
+        {
+            firstStr = str2;
+        }
+        
+        if (firstStr != null)
+        {
+            System.out.println("The first string is: " + firstStr);
+        }
+        else
+        {
+            System.out.println("The strings are equal.");
+        }
         
         
         
