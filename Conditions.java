@@ -196,6 +196,10 @@ public class Conditions
         {
             System.out.println("condition #1 is true");
         }
+        else
+        {
+            System.out.println("condition #1 is false");
+        }
         
         if(word1.equals(word2))
         // if(word1.compareTo(word2) == 0)
@@ -220,16 +224,10 @@ public class Conditions
         {
             System.out.println("condition #4 is true");
         }
+        else
+        {
+            System.out.println("condition #4 is false");
+        }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
 }
