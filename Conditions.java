@@ -221,6 +221,7 @@ public class Conditions
         }
         
         if(word1.substring(0, 3).equals(word2.substring(0, 3)))
+        //if (word1.substring(0, 3).compareTo(word2.substring(0, 3) == 0))
         {
             System.out.println("condition #4 is true");
         }
