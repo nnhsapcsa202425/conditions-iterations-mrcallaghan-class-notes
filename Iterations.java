@@ -101,7 +101,28 @@ public class Iterations
         System.out.println("done.");
     }
     
-    
+    public static void doExample()
+    {
+        /*
+         * do loop ( do-while loop)
+         * 
+         *      1. executes the body of the loop first
+         *      2. evaluates the condition:
+         *          if true, execute the body of the loop again
+         *          if false, continues execution after the loop
+         */
+        
+        int count = 1;      // intialization
+        do
+        {
+            System.out.println(count);       // body
+            
+            count++;        // update the loop variable
+        }
+        while (count <= 5);     // condition
+        
+        System.out.println("done.");
+    }
     
     
     
