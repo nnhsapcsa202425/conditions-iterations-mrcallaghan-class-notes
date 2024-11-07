@@ -21,7 +21,36 @@ public class CommonLoopAlgorithms
      */
     public static int countMatchesForPrefix()
     {
-        return 0;
+        Scanner s = new Scanner(System.in);
+
+        String word = "";
+        int wordsStartingWithCon = 0;
+
+        do
+        {
+            System.out.print("Enter word at least 3 letters: ");
+            word = s.next();
+
+            if (word.equals("quit"))
+            {
+                break;
+            }
+
+            if (word.length() < 3)
+            {
+                System.out.println(word + " is not at least 3 letters. Enter a word at least 3 letters");
+                continue;
+            }
+
+            if (word.substring(0, 3).equals("con"))
+            {
+                wordsStartingWithCon++;
+            }
+
+        }
+        while (!word.equals("quit"));
+
+        return wordsStartingWithCon;
     }
 
     /*
@@ -32,7 +61,24 @@ public class CommonLoopAlgorithms
      */
     public static int countMatchesForSuffix()
     {
-        return 0;
+        Scanner scanner = new Scanner(System.in);
+        int count = 0;
+
+        System.out.println("Enter words (type 'quit' to stop):");
+
+        while (true) {
+            String word = scanner.nextLine();
+            if (word.equals("quit")) {
+                break;
+            }
+            if (word.endsWith("est")) {
+                count++;
+            }
+        }
+
+        scanner.close();
+        System.out.println("Words that end with est:");
+        return count;
     }
 
     /*
@@ -43,7 +89,16 @@ public class CommonLoopAlgorithms
      */
     public static String reverseWord()
     {
-        return "";
+        Scanner s = new Scanner(System.in);
+        System.out.print("enter string: ");
+        String str = s.next();
+        String newstr = "";
+
+        for (int i = 0; i < str.length(); i++){
+            newstr = newstr + str.substring(str.length() - 1 - i, str.length() - i);
+        }
+
+        return newstr;
     }
 
     /*
