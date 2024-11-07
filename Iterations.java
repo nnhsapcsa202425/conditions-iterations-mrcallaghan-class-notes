@@ -162,7 +162,78 @@ public class Iterations
         return sum;
     }
     
+    public static int sumWithBreak()
+    {
+        int sum = 0;
+        int value;
+        
+        Scanner s = new Scanner(System.in);
+        
+        do
+        {
+            System.out.print("Enter a positive integer (-1 to quit): ");
+
+            value = s.nextInt();
+            
+            if (value == -1)
+            {
+                /*
+                 * break: immediately exit the innermost loop
+                 */
+                break;
+            }
+            
+            sum += value;
+        }
+        while (value != -1);
+        
+        return sum;
+    }
     
+    public static int sumWithContinue()
+    {
+        int sum = 0;
+        int value = 0;
+        
+        Scanner s = new Scanner(System.in);
+        
+        do
+        {
+            System.out.print("Enter a positive integer (-1 to quit): ");
+            
+            /*
+             * The hasNextInt method of the Scanner calss returns true if the next token in the input stream is an integer;
+             *  otherwise it returns false.  It does not consume the next token.  If there are no tokens to read, it will
+             *  wait for one to be entered.
+             */
+            if(s.hasNextInt() == false)
+            {
+                System.out.println("" + s.next() + "is not an integer; try again.");
+                
+                /*
+                 * continue:
+                 *  1. immediately skips the rest of the loop body
+                 *  2. re-evaluates the loop condition and continues with the next iteration if true
+                 */
+                continue;
+            }
+
+            value = s.nextInt();
+            
+            if (value == -1)
+            {
+                /*
+                 * break: immediately exit the innermost loop
+                 */
+                break;
+            }
+            
+            sum += value;
+        }
+        while (value != -1);
+        
+        return sum;
+    }
     
     
     
