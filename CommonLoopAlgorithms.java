@@ -69,12 +69,13 @@ public class CommonLoopAlgorithms
     }
 
     /*
-     * Loop Algorithm #7: Identify Individual Digits in an Integer (Extension)
-     * Write an algorithm to identify the individual digits in an integer.
-     * For example, if the integer 123456 is entered by a user, print each digit
-     * on its own line (right-most digit first).
+     * Loop Algorithm #7: Addition with Strings (Extension)
+     * Write an algorithm to identify the individual digits in a String and apply an addition operations, returning 
+     *  the result.
+     * For example, if the integer "123 + 123" is entered by a user, return 246.
      */
-    public static void identifyDigits(int intValue)
+    public static double identifyDigits(String operation)
     {
+        return 0.0;
     }
 }
