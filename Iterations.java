@@ -164,10 +164,78 @@ public class Iterations
         return sum;
     }
 
+    public static int sumWithBreak()
+    {
+        Scanner s = new Scanner(System.in);
+
+        int sum = 0;
+        int value;
+
+        do
+        {
+            System.out.print("Enter a postive integer (-1 to quit): ");
+
+            value = s.nextInt();
+            
+            if (value == -1)
+            {
+                /*
+                 * break: break out or end the innermost loop and continue code after loop
+                 */
+                break;
+            }
+            
+            sum += value;
+        }
+        while (value != -1);
+
+        return sum;
+    }
     
     
-    
-    
+    public static int sumWithContinue()
+    {
+        Scanner s = new Scanner(System.in);
+
+        int sum = 0;
+        int value = 0;
+
+        do
+        {
+            System.out.print("Enter a postive integer (-1 to quit): ");
+            
+            /*
+             * The hasNextInt method of the Scanner class returns true is the next token is an integer, false if not.
+             *      It does not consume the next token.  If there are no tokens then it will wait for the user to type.
+             */
+            
+            if(s.hasNextInt() == false)
+            {
+                System.out.println("" + s.next() + " is not an integer; try again.");
+                /*
+                 * continue keyword:
+                 *  1. immediately skip the rest of the loop body
+                 *  2. re-evaluate the condition and run the next iteration of the body if true
+                 */
+                continue;
+            }
+
+            value = s.nextInt();
+            
+            if (value == -1)
+            {
+                /*
+                 * break: break out or end the innermost loop and continue code after loop
+                 */
+                break;
+            }
+            
+            sum += value;
+        }
+        while (value != -1);
+
+        return sum;
+    }
     
     
 }
