@@ -124,6 +124,117 @@ public class Iterations
         System.out.println("done.");
     }
     
+    public static int sum()
+    {
+        Scanner s = new Scanner(System.in);
+        
+        int sum = 0;
+        int value;
+        
+        do
+        {
+            System.out.print("enter a positive integer (-1 to quit): ");
+            
+            /*
+             * Sentinel value (sentinel variable)
+             *  value (e.g., -1) used to terminate a loop
+             *  often entered by a user
+             */
+            value = s.nextInt();
+            
+            if (value != -1)
+            {
+                 sum += value;
+            }
+               
+        }
+        while(value != -1);
+        
+        
+        
+        return sum;
+    }
+    
+    
+    public static int sumWithBreak()
+    {
+        Scanner s = new Scanner(System.in);
+        
+        int sum = 0;
+        int value;
+        
+        do
+        {
+            System.out.print("enter a positive integer (-1 to quit): ");
+            
+            /*
+             * Sentinel value (sentinel variable)
+             *  value (e.g., -1) used to terminate a loop
+             *  often entered by a user
+             */
+            value = s.nextInt();
+            
+            if (value == -1)
+            {
+                /*
+                 * break keyword: immediately exit the innermost loop
+                 */ 
+                break;
+            }
+            
+            sum += value;
+               
+        }
+        while(value != -1);
+        
+        return sum;
+    }
+    
+    public static int sumWithContinue()
+    {
+        Scanner s = new Scanner(System.in);
+        
+        int sum = 0;
+        int value = 0;
+        
+        do
+        {
+            System.out.print("enter a positive integer (-1 to quit): ");
+            
+            /*
+             * The hasNextINt method of the Scanner class returns true if the next token to be read is an
+             *  integer.otherwise, if returns false.  It does not consume the token.  If there are no tokens in the stream,
+             *     it wait until there are.
+             */
+            if(s.hasNextInt() == false)
+            {
+                System.out.println("... " + s.next() + "is not an integer; try again.");
+                
+                /*
+                 * continue:
+                 *      1. immediately skip to the end of the innermost loop
+                 *      2. re-evaluate the loop condition and continue with the next iteration if 
+                 *          the condition is true
+                 */
+                continue;
+            }
+            
+            value = s.nextInt();
+            
+            if (value != -1)
+            {
+                sum += value;
+            }
+            
+        }
+        while(value != -1);
+        
+        return sum;
+    }
+    
+    
+    
+    
     
     
     
