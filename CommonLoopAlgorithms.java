@@ -10,7 +10,25 @@ public class CommonLoopAlgorithms
      */
     public static int countMatchesForLength()
     {
-        return 0;
+        Scanner scanner = new Scanner(System.in);
+        int count = 0;
+        String word;
+
+        System.out.println("Enter words (type 'quit' to end):");
+
+        while (true) {
+            word = scanner.next();  
+            if (word.equals("quit")) {
+                break;  
+            }
+            if (word.length() > 4) {
+                count++;  
+            }
+        }
+
+        scanner.close();  
+        System.out.println("Total words of length greater than four: " + count);
+        return count;
     }
 
     /*
@@ -21,7 +39,23 @@ public class CommonLoopAlgorithms
      */
     public static int countMatchesForPrefix()
     {
-        return 0;
+        int amount = 0;
+        Scanner s = new Scanner(System.in);
+        String word = "";
+
+        do
+        {
+            System.out.print("enter a word (type 'quit' for sum): ");
+            word = s.next();
+
+            if (word.substring(0,3).equals("con"))
+            {
+                amount++;
+            }
+        }
+        while (!word.equals("quit"));
+
+        return amount;
     }
 
     /*
@@ -32,7 +66,22 @@ public class CommonLoopAlgorithms
      */
     public static int countMatchesForSuffix()
     {
-        return 0;
+        String word = "";
+        int count = 0;
+        Scanner s = new Scanner(System.in);
+
+        do
+        {
+            System.out.print("Enter a word (type 'quit' to quit): ");
+            word = s.next();
+            if(word.substring(word.length() - 3).compareTo("est") == 0)
+            {
+                count++;
+            }
+        }
+        while(word.compareTo("quit") != 0);
+
+        return count;
     }
 
     /*
@@ -43,7 +92,19 @@ public class CommonLoopAlgorithms
      */
     public static String reverseWord()
     {
-        return "";
+        Scanner userInput = new Scanner(System.in); //create scaanner object
+        System.out.print("Enter one word"); //prompt user to enter word
+        String word = userInput.next(); //store next token the user enters
+        String reversedWord = ""; //assign the reversed word as an empty string
+
+        for(int indexOfWord = word.length() -1; indexOfWord >= 0; indexOfWord--) //the index of the characters in the word will start at the last index and decrease, up until index 0
+        {
+            char characterBeingMoved = word.charAt(indexOfWord); //character at the specific index is stored in characterBeingMoved
+            reversedWord += characterBeingMoved; //basically concatenating the character at the last index of the word to an empty string,
+            //adding on each subsequent character at a decreasing index onto the last character at the last index, so the word is reversed
+        }
+
+        return reversedWord; //method returns a String
     }
 
     /*
@@ -53,7 +114,44 @@ public class CommonLoopAlgorithms
      */
     public static int compareAdjacent()
     {
-        return 0;
+        Scanner s = new Scanner(System.in);
+        String s1, s2;
+        int count = 0;
+
+        System.out.println("Enter a word: ");
+        s1 = s.next();
+        count++;
+
+        System.out.println("Enter a word: ");
+        s2 = s.next();
+        count++;
+
+        if (s1.equals(s2) == false)
+        {
+            do
+            {
+                System.out.println("Enter a word: ");
+                s1 = s.next();
+                count++;
+
+                if (s1.equals(s2) == true)
+                {
+                    break;
+                }
+
+                System.out.println("Enter a word: ");
+                s2 = s.next();
+                count++;
+
+                if (s1.equals(s2) == true)
+                {
+                    break;
+                }
+            }
+            while(s1.equals(s2) != true);
+        }
+        count = count - 2;
+        return count;
     }
 
     /*
@@ -65,6 +163,29 @@ public class CommonLoopAlgorithms
      */
     public static String promptUntilMatch()
     {
+        boolean tf = true;
+        Scanner s = new Scanner(System.in);
+        do
+        {
+            System.out.print("enter a word that comes after north alphabetically: ");
+            String word = s.next();
+            int a = word.compareTo("north");
+            if (a <= 0 )
+            {
+                System.out.println("word is less than or equal to north");
+            }
+            else if (a >0 && word.length() > 6)
+            {
+                System.out.println("CORRECT, " + word + " is greater than north alphabetically and more than 6.");
+                tf = false;
+                return word;
+            }
+            else
+            {
+                System.out.println("ERROR word is less than 6 characters.");
+            }
+        }
+        while(tf == true);
         return "";
     }
 
