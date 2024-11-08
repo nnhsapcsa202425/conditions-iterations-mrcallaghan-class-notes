@@ -35,7 +35,30 @@ public class CommonLoopAlgorithms
      */
     public static int countMatchesForPrefix()
     {
-        return 0;
+        String prefix = "con";
+        int count = 0;
+        Scanner s = new Scanner(System.in);
+        String word = "";
+        do
+        {
+            System.out.print("Enter a word to be tested: (quit to exit)");
+            if (s.hasNextLine() == false)
+            {
+                System.out.println("" + s.next() + "is not a word. try again.");
+                continue;
+            }
+            word = s.nextLine();
+            if (word.length() <= 2)
+            {
+                System.out.println("" + word + " is not long enough. try again.");
+                continue;
+            }
+            if (word.substring(0,3).equals(prefix))
+            {
+                count++;
+            }
+        } while (! word.equals("quit"));
+        return count;
     }
 
     /*
@@ -46,21 +69,28 @@ public class CommonLoopAlgorithms
      */
     public static int countMatchesForSuffix()
     {
+        int count = 0;
+        String word = "";
+
         Scanner s = new Scanner(System.in);
-        int estCounter = 0;
-        while (true) {
-            System.out.print("Enter a word. say 'quit' to quit the thingy ");
-            String nextToken = s.next();
-            if (nextToken.equals("quit")) {
-                break;
+
+        do
+        {
+            System.out.print("Enter a word: ");
+            word = s.next();
+            if (word.length() < 3)
+            {
+                continue;
             }
-            if (nextToken.substring(nextToken.length() - 3, nextToken.length()).equals("est")) {
-                estCounter += 1;
-                System.out.println(estCounter);
+
+            else if ((word.substring(word.length() - 3).equals("est")))
+            {
+                count++;
             }
         }
-        System.out.println("Count:  " + estCounter);
-        return estCounter;
+        while (!(word.equals("quit")));
+
+        return count;
     }
 
     /*
@@ -71,7 +101,19 @@ public class CommonLoopAlgorithms
      */
     public static String reverseWord()
     {
-        return "";
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter a word with no spaces: ");
+        String word = in.nextLine();
+
+        String returnString = "";
+        for(int i = word.length() - 1; i >= 0; i--)
+        {
+            String character = word.substring(i,i+1);
+            returnString = returnString + character;
+        }
+        System.out.println("");
+        System.out.println(returnString);
+        return returnString;
     }
 
     /*
@@ -81,7 +123,27 @@ public class CommonLoopAlgorithms
      */
     public static int compareAdjacent()
     {
-        return 0;
+        String previousWord = "";
+        String currentWord;
+
+        int count = 0;
+
+        Scanner s = new Scanner(System.in);
+
+        while (true){
+            System.out.print("Enter a word: ");
+            currentWord = s.nextLine();
+
+            if (currentWord.equals(previousWord)) {
+                break;
+            }
+
+            previousWord = currentWord;
+            count++;
+        }
+
+        return count;
+
     }
 
     /*
@@ -93,7 +155,22 @@ public class CommonLoopAlgorithms
      */
     public static String promptUntilMatch()
     {
-        return "";
+
+        Scanner s = new Scanner(System.in);
+
+        String north = "north";
+        String word;
+
+        do
+        {
+            System.out.print("Enter a word: ");
+
+            word = s.next();
+            word = word.toLowerCase();
+        }
+        while(!(word.compareTo(north) > 0 && word.length() > 6));
+
+        return word;
     }
 
     /*
@@ -104,6 +181,30 @@ public class CommonLoopAlgorithms
      */
     public static double identifyDigits(String operation)
     {
-        return 0.0;
+        /*
+         * issue: does not work for last num
+         */
+        operation += " ";
+        String numString = "0123456789";
+        double sum = 0;
+        int bottomIndex = 0;
+        int topIndex = 0;
+
+        for (int stringIndex = 0; stringIndex < operation.length(); stringIndex++){     //loops through every character
+            String currentChar = operation.substring(stringIndex,stringIndex+1);        // current character
+            if (numString.indexOf(currentChar) != -1){                                  //helps parse the string into an int
+                topIndex++;
+            }
+            else{
+                if (bottomIndex != topIndex){                                   // makes sure the substring is not length 0
+                    int value = Integer.valueOf(operation.substring(bottomIndex, topIndex));
+                    sum+=value;
+                }
+                bottomIndex = stringIndex+1;
+                topIndex = bottomIndex;
+
+            }
+        }
+        return sum;
     }
 }
