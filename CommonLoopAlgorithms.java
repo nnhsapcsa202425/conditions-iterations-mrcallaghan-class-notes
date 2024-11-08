@@ -10,7 +10,21 @@ public class CommonLoopAlgorithms
      */
     public static int countMatchesForLength()
     {
-        return 0;
+        Scanner s = new Scanner(System.in);
+        int count = 0;
+        String word = "";
+        while(word.equals("quit") == false)
+        {
+            System.out.print("Enter words (when done type 'quit'): ");
+            word = s.next();
+            int length = word.length();
+            if (length > 4)
+            {
+                count ++;
+            }
+        }
+
+        return count;
     }
 
     /*
@@ -32,7 +46,21 @@ public class CommonLoopAlgorithms
      */
     public static int countMatchesForSuffix()
     {
-        return 0;
+        Scanner s = new Scanner(System.in);
+        int estCounter = 0;
+        while (true) {
+            System.out.print("Enter a word. say 'quit' to quit the thingy ");
+            String nextToken = s.next();
+            if (nextToken.equals("quit")) {
+                break;
+            }
+            if (nextToken.substring(nextToken.length() - 3, nextToken.length()).equals("est")) {
+                estCounter += 1;
+                System.out.println(estCounter);
+            }
+        }
+        System.out.println("Count:  " + estCounter);
+        return estCounter;
     }
 
     /*
