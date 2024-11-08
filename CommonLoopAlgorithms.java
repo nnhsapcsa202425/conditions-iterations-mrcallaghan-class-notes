@@ -157,7 +157,7 @@ public class CommonLoopAlgorithms
         System.out.print("Enter a word that is alphabetically after the word 'north': ");
         String word = s.next();
 
-        while (word.compareTo("north") < 0 || word.length() <= 6)
+        while (word.compareTo("north") <= 0 || word.length() <= 6)
         {
             if (word.compareTo("north") <= 0)
             {
