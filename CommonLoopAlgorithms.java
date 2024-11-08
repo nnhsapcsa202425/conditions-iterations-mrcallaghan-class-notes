@@ -10,7 +10,18 @@ public class CommonLoopAlgorithms
      */
     public static int countMatchesForLength()
     {
-        return 0;
+        String word = "";
+        int count = 0;
+        Scanner s = new Scanner(System.in);
+
+        while(!(word.equals("quit"))){
+            if(word.length() > 4){
+                count++;
+            }
+
+            word = s.next();
+        }
+        return count;
     }
 
     /*
@@ -63,11 +74,11 @@ public class CommonLoopAlgorithms
     {
         Scanner scanner = new Scanner(System.in);
         int count = 0;
-
+        String word = "";
         System.out.println("Enter words (type 'quit' to stop):");
 
-        while (true) {
-            String word = scanner.nextLine();
+        while (!word.equals("quit")) {
+            word = scanner.nextLine();
             if (word.equals("quit")) {
                 break;
             }
@@ -108,7 +119,29 @@ public class CommonLoopAlgorithms
      */
     public static int compareAdjacent()
     {
-        return 0;
+        Scanner furt = new Scanner(System.in);
+
+        String previousWord = "";
+
+        int count = 0;
+
+        do
+        {
+            System.out.println("Enter a word: ");
+            String newWord = furt.next();
+
+            if (newWord.equals(previousWord))
+            {
+                break;
+            }
+            else
+            {
+                count ++;
+                previousWord = newWord;
+            }
+        }
+        while (true);
+        return count;
     }
 
     /*
@@ -120,7 +153,28 @@ public class CommonLoopAlgorithms
      */
     public static String promptUntilMatch()
     {
-        return "";
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter a word that is alphabetically after the word 'north': ");
+        String word = s.next();
+
+        while (word.compareTo("north") < 0 || word.length() <= 6)
+        {
+            if (word.compareTo("north") <= 0)
+            {
+                System.out.println("The word you chose is not alphabetically after the word 'north.' Try again.");
+    
+            }
+            else if (word.length() <= 6)
+            {
+                System.out.println("The word you chose is not more than six letters. Try again.");
+                
+            }
+            
+            System.out.print("Enter a word that is alphabetically after the word 'north': ");
+            word = s.next();
+        }
+
+        return word;
     }
 
     /*
