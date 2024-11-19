@@ -2,8 +2,8 @@
 /**
  * Models a voting district.
  *
- * @author gcschmit
- * @version 14 June 2022
+ * @author mcallaghan
+ * @version 18 nov 2024
  */
 public class District
 {
